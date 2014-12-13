@@ -11,17 +11,17 @@ set -e
 # don't get too smart - bail on any uncommented entry with 'cgroup' in it
 if grep -v '^#' /etc/fstab | grep -q cgroup; then
 	echo 'cgroups mounted from fstab, not mounting /sys/fs/cgroup'
-	exit 0
+	exit 1
 fi
 
 # kernel provides cgroups?
 if [ ! -e /proc/cgroups ]; then
-	exit 0
+	exit 1
 fi
 
 # if we don't even have the directory we need, something else must be wrong
 if [ ! -d /sys/fs/cgroup ]; then
-	exit 0
+	exit 1
 fi
 
 # mount /sys/fs/cgroup if not already done

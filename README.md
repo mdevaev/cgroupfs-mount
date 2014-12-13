@@ -1,5 +1,5 @@
-# cgroupfs-mount
-## Light-weight package to set up cgroupfs mounts
+# cgroupfs-mount-rc
+## Light-weight package with rc-scripts to set up cgroupfs mounts
 
 Control groups are a kernel mechanism for tracking and imposing limits on
 resource usage on groups of tasks.

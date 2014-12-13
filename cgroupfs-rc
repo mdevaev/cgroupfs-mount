@@ -1,0 +1,28 @@
+#!/bin/bash
+
+. /etc/rc.conf
+. /etc/rc.d/functions
+
+
+cgroupfs_start() {
+	stat_busy "Starting cgroupfs"
+	cgroupfs-mount
+	if [ "$?" -ne 0 ]; then stat_fail
+	else add_daemon cgroupfs; stat_done; fi
+}
+
+cgroupfs_stop() {
+	stat_busy "Stopping cgroupfs"
+	cgroupfs-umount
+	if [ "$?" -ne 0 ]; then stat_fail
+	else rm_daemon cgroupfs; stat_done; fi
+}
+
+
+case "$1" in
+	start) cgroupfs_start;;
+	stop) cgroupfs_stop;;
+	restart) cgroupfs_stop && cgroupfs_start;;
+	*) echo "usage: $0 {start|stop|restart}"
+esac
+exit 0
