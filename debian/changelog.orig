@@ -1,0 +1,42 @@
+cgroupfs-mount (1.4) unstable; urgency=medium
+
+  * Add a short blurb about installation in README.md
+  * Use https for Vcs-Git
+  * Add lsb-base to Depends (init.d-script-needs-depends-on-lsb-base)
+  * Properly remove /etc/init/cgroupfs-mount.conf (upstart script) from old
+    installs (Closes: #834815)
+
+ -- Tianon Gravi <tianon@debian.org>  Wed, 08 Mar 2017 14:05:14 -0800
+
+cgroupfs-mount (1.3) unstable; urgency=medium
+
+  * Added a simple manpage.
+  * Switch init script to use "BASE=cgroupfs-mount" (Closes: #804795).
+  * Explicitly mask initscript in systemd by creating a symlink to /dev/null
+    (Closes: #812357).
+  * Remove upstart (#808289) including "Suggests: mountall" (Closes: #826726)
+
+ -- Tianon Gravi <tianon@debian.org>  Fri, 10 Jun 2016 07:47:40 -0700
+
+cgroupfs-mount (1.2) unstable; urgency=medium
+
+  * Added "Multi-Arch: foreign" to allow us to satisfy "cgroupfs-mount"
+    dependencies on other architectures too (Closes: #776042).
+  * Relax "mountall" Depends to Suggests (Closes: #783143).
+  * Bump Standards-Version to 3.9.6.
+
+ -- Tianon Gravi <admwiggin@gmail.com>  Tue, 05 May 2015 01:38:50 -0600
+
+cgroupfs-mount (1.1) unstable; urgency=medium
+
+  * Added a README, especially to include a section about troubleshooting.
+  * Added "stop on unmounted-remote-filesystems" to Upstart script to fix hang
+    on shutdown issues (Closes: #748710).  Thanks Diane!
+
+ -- Tianon Gravi <admwiggin@gmail.com>  Wed, 15 Oct 2014 10:19:11 -0600
+
+cgroupfs-mount (1.0) unstable; urgency=low
+
+  * Created cgroupfs-mount based on Ubuntu's cgroup-lite (Closes: #736649).
+
+ -- Tianon Gravi <admwiggin@gmail.com>  Mon, 17 Feb 2014 13:50:34 -0500
